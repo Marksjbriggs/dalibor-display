@@ -15,7 +15,7 @@ LifeCycleDefinitionGUID=
 RevisionNamingSchemeGUID=
 
 [OutputGroup1]
-Name=
+Name=dalibor-display.OutJob
 Description=
 TargetOutputMedium=Assembly Files
 VariantName=[No Variations]
@@ -73,13 +73,24 @@ Configuration3_Name6=SortOrder
 Configuration3_Item6=Designator=Up
 Configuration3_Name7=VisibleOrder
 Configuration3_Item7=Designator=130|Description=130|Footprint=159|Manufacturer=120|Manufacturer P/N=120|Quantity=74|Do Not Place=142
+OutputType4=Gerber
+OutputName4=Assembly Files
+OutputCategory4=Fabrication
+OutputDocumentPath4=
+OutputVariantName4=
+OutputEnabled4=1
+OutputEnabled4_OutputMedium1=0
+OutputEnabled4_OutputMedium2=2
+OutputDefault4=0
+Configuration4_Name1=OutputConfigurationParameter1
+Configuration4_Item1=AddToAllLayerClasses.Set= |AddToAllPlots.Set=SerializeLayerHash.Version~2,ClassName~TLayerToBoolean|CentrePlots=False|DrillDrawingSymbol=GraphicsSymbol|DrillDrawingSymbolSize=200000|EmbeddedApertures=True|FilmBorderSize=10000000|FilmXSize=200000000|FilmYSize=160000000|FlashAllFills=False|FlashPadShapes=True|G54OnApertureChange=False|GenerateDRCRulesFile=True|GenerateDRCRulesFile=True|GenerateReliefShapes=True|GerberUnit=Imperial|GerberUnit=Imperial|IncludeUnconnectedMidLayerPads=False|LayerClassesMirror.Set= |LayerClassesPlot.Set= |LeadingAndTrailingZeroesMode=SuppressLeadingZeroes|MaxApertureSize=2500000|MinusApertureTolerance=50|MinusApertureTolerance=50|Mirror.Set=SerializeLayerHash.Version~2,ClassName~TLayerToBoolean|MirrorDrillDrawingPlots=False|MirrorDrillGuidePlots=False|NoRegularPolygons=False|NumberOfDecimals=5|NumberOfDecimals=5|OptimizeChangeLocationCommands=True|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Panelize=False|Plot.Set=SerializeLayerHash.Version~2,ClassName~TLayerToBoolean,16973832~1,16973833~1,16908290~1|PlotPositivePlaneLayers=False|PlotUsedDrillDrawingLayerPairs=False|PlotUsedDrillGuideLayerPairs=False|PlusApertureTolerance=50|PlusApertureTolerance=50|Record=GerberView|SoftwareArcs=False|Sorted=False|Sorted=False
 
 [PublishSettings]
-OutputFilePath1=C:\Users\joel\projects\dalibor-display\fab\
+OutputFilePath1=C:\Users\joel\projects\dalibor-display\output\fab\
 ReleaseManaged1=0
-OutputBasePath1=fab\
-OutputPathMedia1=
-OutputPathMediaValue1=
+OutputBasePath1=output\
+OutputPathMedia1=fab
+OutputPathMediaValue1=fab
 OutputPathOutputer1=[Output Type]
 OutputPathOutputerPrefix1=
 OutputPathOutputerValue1=
@@ -88,11 +99,11 @@ OutputFileNameMulti1=
 UseOutputNameForMulti1=1
 OutputFileNameSpecial1=
 OpenOutput1=0
-OutputFilePath2=C:\Users\joel\projects\dalibor-display\assy\
+OutputFilePath2=C:\Users\joel\projects\dalibor-display\output\assy\
 ReleaseManaged2=0
-OutputBasePath2=assy\
-OutputPathMedia2=
-OutputPathMediaValue2=
+OutputBasePath2=output\
+OutputPathMedia2=assy
+OutputPathMediaValue2=assy
 OutputPathOutputer2=[Output Type]
 OutputPathOutputerPrefix2=
 OutputPathOutputerValue2=
@@ -103,7 +114,7 @@ OutputFileNameSpecial2=
 OpenOutput2=0
 
 [GeneratedFilesSettings]
-RelativeOutputPath1=C:\Users\joel\projects\dalibor-display\fab\
+RelativeOutputPath1=C:\Users\joel\projects\dalibor-display\output\fab\
 OpenOutputs1=0
 AddToProject1=0
 TimestampFolder1=0
@@ -113,7 +124,7 @@ OpenGerberOutput1=0
 OpenNCDrillOutput1=0
 OpenIPCOutput1=0
 EnableReload1=0
-RelativeOutputPath2=C:\Users\joel\projects\dalibor-display\assy\
+RelativeOutputPath2=C:\Users\joel\projects\dalibor-display\output\assy\
 OpenOutputs2=0
 AddToProject2=0
 TimestampFolder2=0
