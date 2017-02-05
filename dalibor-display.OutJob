@@ -15,13 +15,13 @@ LifeCycleDefinitionGUID=
 RevisionNamingSchemeGUID=
 
 [OutputGroup1]
-Name=sigsub.OutJob
+Name=
 Description=
 TargetOutputMedium=Assembly Files
 VariantName=[No Variations]
 VariantScope=1
 CurrentConfigurationName=
-TargetPrinter=Adobe PDF
+TargetPrinter=Brother HL-2280DW Printer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputMedium1=Fabrication Files
 OutputMedium1_Type=GeneratedFiles
@@ -75,9 +75,9 @@ Configuration3_Name7=VisibleOrder
 Configuration3_Item7=Designator=130|Description=130|Footprint=159|Manufacturer=120|Manufacturer P/N=120|Quantity=74|Do Not Place=142
 
 [PublishSettings]
-OutputFilePath1=C:\Users\joel2\projects\sigsub\outputs\
+OutputFilePath1=C:\Users\joel\projects\dalibor-display\fab\
 ReleaseManaged1=0
-OutputBasePath1=outputs\
+OutputBasePath1=fab\
 OutputPathMedia1=
 OutputPathMediaValue1=
 OutputPathOutputer1=[Output Type]
@@ -88,9 +88,9 @@ OutputFileNameMulti1=
 UseOutputNameForMulti1=1
 OutputFileNameSpecial1=
 OpenOutput1=0
-OutputFilePath2=C:\Users\joel2\projects\sigsub\outputs\
+OutputFilePath2=C:\Users\joel\projects\dalibor-display\assy\
 ReleaseManaged2=0
-OutputBasePath2=outputs\
+OutputBasePath2=assy\
 OutputPathMedia2=
 OutputPathMediaValue2=
 OutputPathOutputer2=[Output Type]
@@ -103,7 +103,7 @@ OutputFileNameSpecial2=
 OpenOutput2=0
 
 [GeneratedFilesSettings]
-RelativeOutputPath1=C:\Users\joel2\projects\sigsub\outputs\
+RelativeOutputPath1=C:\Users\joel\projects\dalibor-display\fab\
 OpenOutputs1=0
 AddToProject1=0
 TimestampFolder1=0
@@ -113,7 +113,7 @@ OpenGerberOutput1=0
 OpenNCDrillOutput1=0
 OpenIPCOutput1=0
 EnableReload1=0
-RelativeOutputPath2=C:\Users\joel2\projects\sigsub\outputs\
+RelativeOutputPath2=C:\Users\joel\projects\dalibor-display\assy\
 OpenOutputs2=0
 AddToProject2=0
 TimestampFolder2=0
