@@ -5,7 +5,7 @@ CAUTION: I don't yet know if this works!
 
 ## Overview
 
-This is a 6 Nixie Tube driver board driven by two 180V power supplies and two open-collector drivers (3 tubes on each driver). It is designed for the Dalibor Farny R|Z568M numberical Nixie Tube. If you have a custom Nixie Tube or a Nixie Tube from another vendor you should verify that it is compatible.
+This is a 6 Nixie Tube driver board driven by two 170V power supplies and two open-collector drivers (3 tubes on each driver). It is designed for the Dalibor Farny R|Z568M numberical Nixie Tube. If you have a custom Nixie Tube or a Nixie Tube from another vendor you should verify that it is compatible.
 
 ## Connections
 
@@ -36,6 +36,23 @@ Output (daisy-chain) Connector:
 |5|Ground|
 
 Pin #1 is adjacent to the component designator.
+
+## Bias Resistors
+
+Each Nixie Tube requires an anode biasing resistor. The value of this resistor determines the cold cathode illuminance. A typical value is 8.2k ohms. If the Nixie Tube element is smaller a different resistance value may be needed.
+
+These resistor designators are as follows:
+
+|Designator|Tube Socket|Digit|
+|----|----|----|
+|R4|P1|#1|
+|R10|P2|#2|
+|R12|P3|#3|
+|R3|P4|#4|
+|R9|P5|#5|
+|R11|P6|#6|
+
+Be sure to change or experiment with different resistor values for your particular tubes. The default is 47k which is most likely too high for most elements.
 
 ## Dimensions
 
