@@ -1,7 +1,9 @@
 # dalibor-display
 This is a 6 Nixie Tube driver board.
 
-CAUTION: I don't yet know if this works!
+UPDATE: The board has been tested good. However there's a yet-to-be debugged issue where it only operates between ~8 and ~10 Volts. EMI is suspect. Needs more debugging, but other than that board works fine.
+
+Arduino code is attached for making your own display array.
 
 ## Overview
 
