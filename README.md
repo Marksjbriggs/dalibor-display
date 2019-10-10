@@ -1,6 +1,8 @@
 # dalibor-display
 This is a 6 Nixie Tube driver board.
 
+There is a 2 Nixie Tube driver board here: https://github.com/jdbrinton/dalibor-display/tree/two-tube
+
 UPDATE: The board has been tested good. However there's a yet-to-be debugged issue where it only operates between ~8 and ~10 Volts. EMI is suspect. Needs more debugging, but other than that board works fine.
 
 Arduino code is attached for making your own display array.
