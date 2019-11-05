@@ -78,3 +78,15 @@ This board may be put adjacent to another board and still maintain 60mm spacing 
 If you don't have access to Altium Designer then you can take the the zip file in the output directory and just send that over to any regular PCB Manufacturer. Specify the board thickness (I used 0.092") and the color. This is a simple 2-layer board.
 
 The Excel BOM file is a complete parts purchase list. There is a PDF of the schematics in the output directory for your reference.
+
+## Software
+
+The included Arduino software example is a clock application that uses three boards to make an HH:MM:SS clock. It runs on an Arduino Uno Wifi Rev. 2.
+
+
+## BUGS
+
+* R8 (the DOUT series termination) needs to be 100-Ohm instead of 47k-Ohm.
+* When connecting together 3 boards to make a clock (as in the included Arduino example) the hours indicator flickers. There's some poor signal integrity issue. May be able to be resolved with a series termination resistor. The minute counter also flickers a bit.
+* Powering this from a Meanwell power supply causes all sorts of problems. Switching to a Traco power supply for next version. Will report back how that works.
+

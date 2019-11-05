@@ -246,3 +246,8 @@ TSWLatexianTemp*
 
 # KBibTeX
 *~[0-9]*
+
+
+## Project specific stuff
+
+secrets.h
