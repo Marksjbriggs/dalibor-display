@@ -89,4 +89,6 @@ The included Arduino software example is a clock application that uses three boa
 * R8 (the DOUT series termination) needs to be 100-Ohm instead of 47k-Ohm.
 * When connecting together 3 boards to make a clock (as in the included Arduino example) the hours indicator flickers. There's some poor signal integrity issue. May be able to be resolved with a series termination resistor. The minute counter also flickers a bit.
 * Powering this from a Meanwell power supply causes all sorts of problems. Switching to a Traco power supply for next version. Will report back how that works.
+* The electrolytic capacitors don't fit. The PCB holes are too small for the pins. Also the capacitors interfere with the nixie tubes.
+
 
