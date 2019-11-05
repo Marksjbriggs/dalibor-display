@@ -1,19 +1,17 @@
 # dalibor-display
-This is a 6 Nixie Tube driver board.
-
-UPDATE: The board has been tested good. However there's a yet-to-be debugged issue where it only operates between ~8 and ~10 Volts. EMI is suspect. Needs more debugging, but other than that board works fine.
+This is a 2 Nixie Tube driver board.
 
 Arduino code is attached for making your own display array.
 
 ## Overview
 
-This is a 6 Nixie Tube driver board driven by two 170V power supplies and two open-collector drivers (3 tubes on each driver). It is designed for the Dalibor Farny R|Z568M numberical Nixie Tube. If you have a custom Nixie Tube or a Nixie Tube from another vendor you should verify that it is compatible.
+This is a 2 Nixie Tube driver board driven by one 170V power supplies and one open-collector drivers. It is designed for the Dalibor Farny R|Z568M numberical Nixie Tube. If you have a custom Nixie Tube or a Nixie Tube from another vendor you should verify that it is compatible.
 
 ## Connections
 
 There are two 5-pin 0.1 inch pitch headers on the back which may be used to daisy-chain a number of these boards together. The open-collector drivers use a shift register. Assert the latch pin and then clock in the data for all six Nixie Tubes and continue clocking in data for any additional boards in the daisy-chain.
 
-This board requires up to 700mA @ 12V, so if multiple boards are daisy-chained then you might need to connect a dedicated 12V power supply to each board. Also, the M3 mount may be used as a power connector by jumpering the "solder link" on the bottom of the board (see label on bottom of board).
+This board requires up to 250mA @ 12V, so if multiple boards are daisy-chained then you might need to connect a dedicated 12V power supply to each board. Also, the M3 mount may be used as a power connector by jumpering the "solder link" on the bottom of the board (see label on bottom of board).
 
 The 3 input signals (clock, data, latch) can be driven from 1.2V to 15V. The daisy-chain output "data pin" is 12V with a series 47k resistor. Just note this in case for some reason you're going to connect the last board of your daisy-chain back into a processor.
 
