@@ -80,3 +80,8 @@ This board may be put adjacent to another board and still maintain 60mm spacing 
 If you don't have access to Altium Designer then you can take the the zip file in the output directory and just send that over to any regular PCB Manufacturer. Specify the board thickness (I used 0.092") and the color. This is a simple 2-layer board.
 
 The Excel BOM file is a complete parts purchase list. There is a PDF of the schematics in the output directory for your reference.
+
+## BUGS
+
+* There's a yet-to-be debugged issue where it only operates between ~8 and ~10 Volts. EMI is suspect. Needs more debugging, but other than that board works fine.
+
