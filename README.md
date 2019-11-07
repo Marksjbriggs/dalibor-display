@@ -3,9 +3,14 @@ This is a 2 Nixie Tube driver board.
 
 Arduino code is attached for making your own display array.
 
+<img src="photo.jpg" width="400">
+
 ## Overview
 
 This is a 2 Nixie Tube driver board driven by one 170V power supplies and one open-collector drivers. It is designed for the Dalibor Farny R|Z568M numberical Nixie Tube. If you have a custom Nixie Tube or a Nixie Tube from another vendor you should verify that it is compatible.
+
+Tubes can be purchased here: https://www.daliborfarny.com/
+
 
 ## Connections
 
