@@ -275,9 +275,9 @@ void initClock()
     t.tm_year = 2019-1900;
     t.tm_mon = 11;
     t.tm_mday = 5;
-    t.tm_hour = 01;
-    t.tm_min = 51;
-    t.tm_sec = 00;
+    t.tm_hour = 2;
+    t.tm_min = 29;
+    t.tm_sec = 30;
     t.tm_isdst = 0;        // Is DST on? 1 = yes, 0 = no, -1 = unknown
 
     t_of_day = mktime(&t);
