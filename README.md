@@ -44,37 +44,22 @@ Pin #1 is adjacent to the component designator.
 
 ## Bias Resistors
 
-Each Nixie Tube requires an anode biasing resistor. The value of this resistor determines the cold cathode illuminance. A typical value is 8.2k ohms. If the Nixie Tube element is smaller a different resistance value may be needed.
-
-These resistor designators are as follows:
-
-|Designator|Tube Socket|Digit|
-|----|----|----|
-|R4|P1|#1|
-|R10|P2|#2|
-|R12|P3|#3|
-|R3|P4|#4|
-|R9|P5|#5|
-|R11|P6|#6|
+Each Nixie Tube requires an anode biasing resistor (R4 and R10). The value of this resistor determines the cold cathode illuminance. A typical value is 8.2k ohms. If the Nixie Tube element is smaller a different resistance value may be needed.
 
 Be sure to change or experiment with different resistor values for your particular tubes. The default is 47k which is most likely too high for most elements.
 
 ## Dimensions
 
-The board is 360mm by 75mm.
+The board is 120mm by 75mm.
 
 The mounting holes are designed to accomodate up to a 1/4-20 inch cap screw (1/4 inch finished hole size). Note that the mounting hole positions are not symetric:
 
 |Y|X|
 |-----|-----|
 |9mm |8.5mm|
-|9mm |119.5mm|
-|9mm |240.5mm|
-|9mm |351.5mm|
+|9mm |111.5mm|
 |66mm |8.5mm|
-|66mm |119.5mm|
-|66mm |240.5mm|
-|66mm |351.5mm|
+|66mm |111.5mm|
 
 This board may be put adjacent to another board and still maintain 60mm spacing between all tubes.
 
