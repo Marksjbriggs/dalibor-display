@@ -6,6 +6,11 @@
 #include <time.h>
 #include "secrets.h"
 
+#define GMT_TIME (-8)
+
+
+time_t t_of_day;
+time_t last_checked;
 
 int status = WL_IDLE_STATUS;
 
@@ -23,6 +28,8 @@ byte packetBuffer[ NTP_PACKET_SIZE]; //buffer to hold incoming and outgoing pack
 
 // A UDP instance to let us send and receive packets over UDP
 WiFiUDP Udp;
+
+bool stale = true;
 
 
 #define CLOCK 8
@@ -96,24 +103,9 @@ void setup() {
   pinMode(CLOCK, OUTPUT);
   pinMode(DATA, OUTPUT);
   pinMode(LATCH, OUTPUT);
-  initClock();
+
+  writeTime(99,99,99);
   
-  while (RTC.STATUS > 0) {} // attend que tous les registre soit synchronisée
-
-  RTC.PER = 1024*1; //1 secs timer.
-  RTC.INTCTRL = 0 << RTC_CMP_bp
-  | 1 << RTC_OVF_bp; //Overflow interrupt.
- 
-  RTC.CTRLA = RTC_PRESCALER_DIV1_gc //NO Prescaler
-  | 1 << RTC_RTCEN_bp         //active RTC
-  | 1 << RTC_RUNSTDBY_bp;     //fonctionne en standby
-
-  RTC.CLKSEL = RTC_CLKSEL_INT1K_gc; // 32KHz divisé par 32, fonctionne à 1.024kHz
-  sei(); //active l'interruption
-
-  
-  return;
-
   // Open serial communications and wait for port to open:
   Serial.begin(9600);
   while (!Serial) {
@@ -148,8 +140,19 @@ void setup() {
 
   Serial.println("\nStarting connection to server...");
   Udp.begin(localPort);
-  
-  //Serial.begin(9600);
+
+  while (RTC.STATUS > 0) {} // attend que tous les registre soit synchronisée
+
+  RTC.PER = 1024*1; //1 secs timer.
+  RTC.INTCTRL = 0 << RTC_CMP_bp
+  | 1 << RTC_OVF_bp; //Overflow interrupt.
+ 
+  RTC.CTRLA = RTC_PRESCALER_DIV1_gc //NO Prescaler
+  | 1 << RTC_RTCEN_bp         //active RTC
+  | 1 << RTC_RUNSTDBY_bp;     //fonctionne en standby
+
+  RTC.CLKSEL = RTC_CLKSEL_INT1K_gc; // 32KHz divisé par 32, fonctionne à 1.024kHz
+  sei(); //active l'interruption
 }
 
 void clearMap() {
@@ -207,11 +210,10 @@ void writeTime(unsigned h, unsigned m, unsigned s) {
   delayMicroseconds(10);
 }
 
-void ntp_check()
+void ntp_packet_check()
 {
-  sendNTPpacket(timeServer); // send an NTP packet to a time server
-  // wait to see if a reply is available
-  delay(1000);
+  struct tm t;
+  
   if (Udp.parsePacket()) {
     Serial.println("packet received");
     // We've received a packet, read the data from it
@@ -253,14 +255,22 @@ void ntp_check()
       Serial.print('0');
     }
     Serial.println(epoch % 60); // print the second
+
+    t.tm_year = 2019-1900;
+    t.tm_mon = 1;
+    t.tm_mday = 1;
+    t.tm_hour = (epoch  % 86400L) / 3600 + GMT_TIME;
+    t.tm_min = (epoch  % 3600) / 60;
+    t.tm_sec = epoch % 60;
+    t.tm_isdst = 0;        // Is DST on? 1 = yes, 0 = no, -1 = unknown
+
+    t_of_day = mktime(&t);
+    last_checked = t_of_day;
+
+    stale = false;
   }
 }
 
-#define START_SEC 00
-#define START_MIN 39
-#define START_HOUR 12
-
-time_t t_of_day;
 
 ISR(RTC_CNT_vect)
 {
@@ -268,30 +278,25 @@ ISR(RTC_CNT_vect)
   t_of_day++;
 }
 
-void initClock()
-{
-    struct tm t;
-
-    t.tm_year = 2019-1900;
-    t.tm_mon = 11;
-    t.tm_mday = 5;
-    t.tm_hour = 2;
-    t.tm_min = 29;
-    t.tm_sec = 30;
-    t.tm_isdst = 0;        // Is DST on? 1 = yes, 0 = no, -1 = unknown
-
-    t_of_day = mktime(&t);
-}
 
 
 void loop() {
   struct tm* info;
 
+  if( true == stale ) sendNTPpacket(timeServer);
+  
+  // see if there is an NTP UDP packet waiting for us
+  ntp_packet_check();
+
+  // write the time
   info = gmtime(&t_of_day);
-  
   writeTime(info->tm_hour, info->tm_min, info->tm_sec);
-  
-//  delay(1000);
+
+  // if more than 15 minutes has gone by then mark time as stale
+  if( t_of_day > (last_checked + 15 * 60) ) stale = true;
+
+  // delay to prevent UDP packet flood
+  delay(50);
 }
 
 // send an NTP request to the time server at the given address
